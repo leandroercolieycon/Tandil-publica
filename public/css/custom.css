@@ -1,0 +1,163 @@
+/**{ margin: 0; padding: 0; font-family:arial; font-size:10px; outline: none}*/
+body,html	{ width:100%; height:100%;}
+
+.center		{ height:96%;width:100%;	}
+.table-logo{ margin:0px; padding:0px; border-collapse:collapse;}
+.table-logo tr, .table-logo td{  margin:0px; padding:0px; }
+.box-header{ background:#b15590; border-bottom:1pt solid #b15590; }
+.hide{display:none;}
+
+.item-recorrido-class {font-size:16px;}
+
+/*Estilos aplicados Rodrigo*/
+#header_semivm{
+		padding: 1em 1em 1em 1em;
+		box-shadow: 0 0 2px 1px black;
+		z-index: 900;
+}
+
+#logo-larioja, #logo-larioja2{
+			height: 55px;			
+			width: 180px;			
+}
+
+.clear{
+		clear: both;
+}
+
+.north{
+	height:auto;
+	background:#b15590;
+	box-shadow: 0 0 2px 1px black;
+} 
+
+select{
+		padding: 0.4em;
+		text-transform: uppercase;
+		font-size: 11px;
+}
+
+.columna{
+	width: 33%;
+	float: left;
+}
+
+.columna_bis{
+	float: right;
+	align: right;
+}
+
+#lineas-select{
+	text-align: right;
+}
+
+#logo-centro{
+	text-align: center;
+}
+
+@media (max-width: 414px) {
+	.columna{
+		width: 100%;
+		float:none;
+		text-align: center !important;
+	}
+	#logo-sis, #logo-centro{
+			width: 50% !important;
+			float: left !important;
+			margin-bottom: .8em;
+	}
+
+}
+
+.btn_contacto
+{ 
+	background:#b15590;
+	color:#fff;
+	display:inline-block;
+	font-size:1.25em;
+	padding:10px 0;
+	text-align:center;
+	width:200px;
+	text-decoration:none;
+	float: left;
+}
+
+
+
+
+/* EDICIONES DE INSPINIA */
+.landing-page .btn-primary.btn-outline{
+	color: #b15590;
+	background-color: transparent;
+    transition: all .5s;
+}
+
+.landing-page .btn-primary{
+	padding: .375rem .75rem !important;
+}
+.btn-primary:hover, 
+.btn-primary:focus {
+	background-color: #b13383 !important;
+	border-color: #b13383 !important;
+}
+
+/*  Spinner de carga de tarjeta  */
+.modal_spinner > .sk-spinner{
+	display: none;
+}
+
+.modal_spinner.sk-loading{
+	position: relative;
+}
+
+.modal_spinner.sk-loading > .sk-spinner{
+	display: block;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+}
+
+.modal_spinner.sk-loading:after{
+	content: '';
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+/*   EDICIONS OPEN STREET MAP   */
+.leaflet-top, .leaflet-bottom{
+	z-index: 0 !important;
+}
+
+.spinner_registro_code > .sk-spinner{
+	display: none;
+}
+
+.spinner_registro_code.sk-loading{
+	position: relative;
+}
+
+.spinner_registro_code.sk-loading > .sk-spinner{
+	display: block;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+}
+
+.spinner_registro_code.sk-loading:after{
+	content: '';
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

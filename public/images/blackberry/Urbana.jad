@@ -1,0 +1,17 @@
+MIDlet-Name: Urbana
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Eycon S. A.
+MIDlet-Jar-URL: http://www.gpsurbana.com/images/blackberry/Urbana.jar
+MIDlet-Jar-Size: 38860
+MIDlet-Description: Bahia Urbana permite visualizar el Transporte Publico de Bahia Blanca
+MicroEdition-Profile: MIDP-2.0
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-1: Bahia Urbana,bbicon.png,
+RIM-MIDlet-Flags-1: 0
+Manifest-Version: 1.0
+RIM-COD-URL: http://www.gpsurbana.com/images/blackberry/Urbana.cod
+RIM-COD-Size: 19864
+RIM-COD-Creation-Time: 1333198768
+RIM-COD-Module-Name: Urbana
+RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_networkapi,net_rim_bb_browser_field2_api
+RIM-COD-SHA1: 52 91 c5 58 f9 6b 5b 4e b9 0b ff b0 40 59 89 c0 2c 17 d3 66
