@@ -111,19 +111,19 @@ $(document).ready(function () {
 
 	fn_idle = function () { caducity.end(); caducity.start(); };
 
-	var map = L.map("mapa", {zoomControl: true}).setView([-29.4190370, -66.8548484], 14);
+	var map = L.map("mapa", {zoomControl: true}).setView([-37.325969,-59.1381165], 14);
 	L.tileLayer
 		(
 		"http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 		{
 			attribution: "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, <a href='http://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='http://cloudmade.com'>CloudMade</a>",
 			maxZoom: 19,
-			minZoom: 13,
+			//minZoom: 13,
 			scrollWheelZoom: true
 		}
 		).addTo(map);
 
-	map.locate({setView: true, maxZoom: 17});
+	map.locate();
 	map.on('locationfound', function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 		var yellowIcon = new L.Icon({
@@ -231,7 +231,8 @@ $(document).ready(function () {
 		parkmCircles = [];		
 	
 		for (var i in park) {
-			var tmp = L.marker([park[i].lat, park[i].lon], { icon: myIcon, title: park[i].ad })
+			if(park[i].lat && park[i].lon)
+				var tmp = L.marker([park[i].lat, park[i].lon], { icon: myIcon, title: park[i].ad })
 			if(userMarker){ // Agregar circulos a los parquímetros cercanos
 				var distAParquimetro = userMarker.getLatLng().distanceTo(tmp.getLatLng());
 				if(distAParquimetro < 150){
@@ -263,7 +264,8 @@ $(document).ready(function () {
 		pvCircles = [];
 
 		for (var i in pv) {
-			var tmp = L.marker([pv[i].latitud, pv[i].longitud], { icon: myIcon, title: pv[i].direccion });
+			if(pv[i].latitud && pv[i].longitud)
+				var tmp = L.marker([pv[i].latitud, pv[i].longitud], { icon: myIcon, title: pv[i].direccion });
 			if(userMarker){ // Agregar circulos a los parquímetros cercanos
 				var distAPv = userMarker.getLatLng().distanceTo(tmp.getLatLng());
 				if(distAPv < 350){
