@@ -126,17 +126,17 @@ $(document).ready(function () {
 	map.locate({setView: true, maxZoom: 17});
 	map.on('locationfound', function onLocationFound(e) {
 		var radius = e.accuracy / 2;
-		var violetIcon = new L.Icon({
-			iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png',
+		var yellowIcon = new L.Icon({
+			iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
 			shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
 			iconSize: [25, 41],
 			iconAnchor: [12, 41],
 			popupAnchor: [1, -34],
 			shadowSize: [41, 41]
 		  });
-		userMarker = new L.marker(e.latlng, {icon: violetIcon});	
+		userMarker = new L.marker(e.latlng, {icon: yellowIcon});	
 		map.addLayer(userMarker);
-		userCircleMarker = new L.circle(e.latlng, radius, {color: '#b15590', opacity:.5});
+		userCircleMarker = new L.circle(e.latlng, radius, {color: '#F5D907', opacity:.5});
 		map.addLayer(userCircleMarker);	
 		if($("#checkbox-parquimetros").is(':checked')){
 			mostrarParquimetros();

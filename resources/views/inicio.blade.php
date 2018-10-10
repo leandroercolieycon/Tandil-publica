@@ -7,15 +7,17 @@
     <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
             <div class="container">
-                <a href="http://www.municipiolarioja.gob.ar/" target="_blank" class="navbar-brand"><img src="images/logo_la_rioja.png"
-                        id='logo-larioja' alt="La Rioja - Argentina"></a>
+                <a href="http://www.tandil.gov.ar/" target="_blank" class="navbar-brand">
+                <img src="images/tandil-logo.png" id='logo-tandil' alt="Tandil - Argentina" style="margin-right:0.8rem;">
+                <img src="images/logo-sumo-app.png" id='logo-sumo' alt="Sumo - Tandil">
+                </a>
                 <div class="navbar-header page-scroll">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
                         <i class="fa fa-bars"></i>
                     </button>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end " id="navbar">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" >
                         <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-tarjeta">Solicitud
                                 Tarjeta</a></li>
                         <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-registro">Registrarse</a></li>
