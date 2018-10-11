@@ -21,7 +21,7 @@ $(document).ready(function () {
 		success: function (msg) {
 			park = eval(msg);
 			mostrarParquimetros();
-			$('#btn-parking').toggleClass('sk-loading')
+			$('#configbox').toggleClass('sk-loading')
 		},
 		error: function (msg) {
 			alert("No se encontraron parquímetros.");
@@ -138,10 +138,10 @@ $(document).ready(function () {
 		map.addLayer(userMarker);
 		userCircleMarker = new L.circle(e.latlng, radius, {color: '#F5D907', opacity:.5});
 		map.addLayer(userCircleMarker);	
-		if($("#checkbox-parquimetros").is(':checked')){
+		if($("#switch-parquimetros").is(':checked')){
 			mostrarParquimetros();
 		}
-		if($("#checkbox-pv").is(':checked')){
+		if($("#switch-pv").is(':checked')){
 			mostrarPv();
 		}
 	});
@@ -186,7 +186,7 @@ $(document).ready(function () {
 	map.addControl(new MyControlProvider());
 
 	/* Cambios en checkbox PARQUIMETROS, mostrar/ocultar parquímetros */
-	$("#checkbox-parquimetros").change(function (e) {
+	$("#switch-parquimetros").change(function (e) {
 		if (this.checked) { //mostrar parquímetros
 			mostrarParquimetros();
 		} else { //ocultar parquímetros
@@ -200,7 +200,7 @@ $(document).ready(function () {
 	});	
 
 	/* Cambios en checkbox PUESTOS DE RECARGA, mostrar/ocultar pr */
-	$("#checkbox-pv").change(function (e) {
+	$("#switch-pv").change(function (e) {
 		if (this.checked) { //mostrar pr
 			mostrarPv();
 		} else { //ocultar pr
@@ -288,3 +288,14 @@ $(document).on('click', '.navbar-collapse.in', function (e) {
 		$(this).collapse('hide');
 	}
 });
+
+/* Caja de configuración */
+        // SKIN Select
+        $('.spin-icon').click(function () {
+            $(".theme-config-box").toggleClass("show");
+		});
+		$('#mapa').on('click touchstart', function(){
+			if ($(".theme-config-box").is(".show" ) ) { 
+				$(".theme-config-box").toggleClass("show");		 
+			}
+		})

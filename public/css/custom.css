@@ -173,7 +173,7 @@ select{
 	position:absolute; 
 	z-index:1; 
 	left:3%;
-	bottom:6%;
+	bottom:8%;
 	padding:1.5rem 1.5rem 0 0.2rem;
 	font-size:1rem;
 	line-height:1rem;
@@ -189,10 +189,18 @@ select{
 	position:absolute;
 	z-index:1; 
 	right:5%; 
-	bottom:8%;
+	bottom:10%;
 	font-size:1.5rem;
 	transform:scale(1.2)
-  }
+	}
+	#btn-colectivos{
+		position:absolute;
+		z-index:1; 
+		right:10%; 
+		bottom:10%;
+		font-size:1.5rem;
+		transform:scale(1.2)
+		}
   @media (max-width: 768px) {
 	#btn-parking {
 	  position:absolute;     
@@ -210,6 +218,14 @@ select{
 	  position:absolute;
 	  z-index:1; 
 	  right:5%; 
+	  bottom:10%;
+	  font-size:1.5rem;
+	  transform:scale(1)
+	}
+	#btn-colectivos{
+	  position:absolute;
+	  z-index:1; 
+	  right:10%; 
 	  bottom:20%;
 	  font-size:1.5rem;
 	  transform:scale(1)
@@ -223,8 +239,8 @@ select{
   }
   
   .circlemarker{
-	background-color: rgba(245, 217, 7	,0.2);
-	border: 3px solid rgba(245, 217, 7	,0.4);
+	background-color: rgba(245, 217, 7	,0.4);
+	border: 3px solid rgba(245, 217, 7	,0.6);
 	border-radius: 50%;
   }
   .circlemarker-pv{
@@ -232,3 +248,48 @@ select{
 	border: 3px solid rgba(252, 148, 28	,0.4);
 	border-radius: 50%;
   }
+  #copyright-eycon{
+	position:absolute; 
+	z-index:1; 
+	left:1%;
+	bottom:0;
+	padding-top:0.2rem;
+	padding-bottom:0.2rem;
+	text-align:center;
+	font-size:1rem;
+	line-height:1rem;
+	background:  rgba(245, 217, 7,0.9);
+	border: rgba(245, 217, 7) 1px solid;
+	border-radius: 0.2rem;
+	color:#676a6c;
+	}
+	
+	/* Caja de configuracion */
+	.theme-config{
+		top:30%;
+	}
+	@media (max-width: 768px) {
+		.theme-config{
+			top:auto;
+			bottom:9%;
+		}
+	}
+	.theme-config-box { /* Cuando se oculta */
+		margin-right: -280px;
+	  }
+	.theme-config i{
+		color:#676a6c;
+	}
+	.theme-config .skin-settings{
+		width:280px;
+	}
+	.onoffswitch-inner:before {
+		content: "";
+	}
+	.onoffswitch-inner:after {
+		content: "";
+	}
+	.setings-item{
+		padding-left:0;
+		padding-right:0;
+	}
