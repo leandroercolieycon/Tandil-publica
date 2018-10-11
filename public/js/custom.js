@@ -167,8 +167,8 @@ $(document).ready(function () {
 				var providerControlDiv = L.DomUtil.create('div', 'control_provider');
 				providerControlDiv.style.padding = '5px';
 				var controlUI = document.createElement('DIV');
-				controlUI.style.backgroundColor = '#E9F2FF';
-				controlUI.style.border = '1px solid #8EAACE';
+				controlUI.style.backgroundColor = 'rgba(255,255,255,0.6)';
+				controlUI.style.border = '1px solid #676a6c';
 				controlUI.style.cursor = 'pointer';
 				controlUI.style.textAlign = 'center';
 				providerControlDiv.appendChild(controlUI);
@@ -176,6 +176,7 @@ $(document).ready(function () {
 				controlText.style.fontSize = '12px';
 				controlText.style.paddingLeft = '4px';
 				controlText.style.paddingRight = '4px';
+				controlText.style.paddingtop = '4px';
 				/*controlText.innerHTML 				= '<a href="http://www.e-bus.com.ar" target="_blank" ><img src="<?php echo base_url(); ?>images/logo.gif" border="0" width="60" height="15"  /></a> <a href="http://www.eycon.com.ar" target="_blank" ><img src="<?php echo base_url(); ?>images/logo_eycon_small.png" border="0" width="60" height="12" /></a> <img src="http://www.hit-counts.com/counter.php?t=1315079"  height="12"  /> <br> <span style="font-size:8px;">Copyright &copy; EYCON S.A. 2013 Todos los derechos reservados.</span> '; */
 				/*controlText.innerHTML 				= '<a href="http://www.e-bus.com.ar" target="_blank" ><img src="<?php echo base_url(); ?>images/logo.gif" border="0" width="60" height="15"  /></a> <a href="http://www.eycon.com.ar" target="_blank" ><img src="<?php echo base_url(); ?>images/logo_eycon_small.png" border="0" width="60" height="12" /></a> <img src="http://www.reliablecounter.com/count.php?page=www.semivm.com/&digit=style/plain/12/&reloads=0"  height="12"  /> <br> <span style="font-size:8px;">Copyright &copy; EYCON S.A. 2013 Todos los derechos reservados.</span> '; */
 				controlText.innerHTML = '<a href="http://www.e-bus.com.ar" target="_blank" ><img src="images/logo.gif" border="0" width="60" height="15"  /></a> <a href="http://www.eycon.com.ar" target="_blank" ><img src="images/logo_eycon_small.png" border="0" width="60" height="12" /></a> <br> <span style="font-size:8px;">Copyright &copy; EYCON S.A. 2013 Todos los derechos reservados.</span> ';

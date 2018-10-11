@@ -112,7 +112,10 @@
                     </div>
                 </div>
                 <div class="setings-item">
-                    <i class="fa fa-bus" style="padding-left:1px;padding-right:0.7rem;"></i>
+                    <span class="fa-stack">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color:#F5D907"></i>
+                        <i class="fa fa-bus fa-stack-1x"></i>
+                    </span>                   
                     <span>
                         Línea 500
                     </span>
@@ -127,7 +130,10 @@
                     </div>
                 </div>
                 <div class="setings-item">
-                    <i class="fa fa-bus" style="padding-left:1px;padding-right:0.7rem;"></i>
+                    <span class="fa-stack">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color:red"></i>
+                        <i class="fa fa-bus fa-stack-1x"></i>
+                    </span>  
                     <span>
                         Línea 501
                     </span>
@@ -142,7 +148,10 @@
                     </div>
                 </div>
                 <div class="setings-item">
-                    <i class="fa fa-bus" style="padding-left:1px;padding-right:0.7rem;"></i>
+                    <span class="fa-stack">
+                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                        <i class="fa fa-bus fa-stack-1x"></i>
+                    </span>  
                     <span>
                         Línea 502
                     </span>
@@ -157,7 +166,10 @@
                     </div>
                 </div>
                 <div class="setings-item">
-                    <i class="fa fa-bus" style="padding-left:1px;padding-right:0.7rem;"></i>
+                    <span class="fa-stack">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color:blue"></i>
+                        <i class="fa fa-bus fa-stack-1x"></i>
+                    </span>  
                     <span>
                         Línea 503
                     </span>
@@ -172,7 +184,10 @@
                     </div>
                 </div>
                 <div class="setings-item">
-                    <i class="fa fa-bus" style="padding-left:1px;padding-right:0.7rem;"></i>
+                    <span class="fa-stack">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color:green"></i>
+                        <i class="fa fa-bus fa-stack-1x"></i>
+                    </span>  
                     <span>
                         Línea 504
                     </span>
@@ -187,7 +202,10 @@
                     </div>
                 </div>
                 <div class="setings-item">
-                    <i class="fa fa-bus" style="padding-left:1px;padding-right:0.7rem;"></i>
+                    <span class="fa-stack">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color:brown"></i>
+                        <i class="fa fa-bus fa-stack-1x"></i>
+                    </span>  
                     <span>
                         Línea 505
                     </span>

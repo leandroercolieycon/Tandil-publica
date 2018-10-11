@@ -189,7 +189,7 @@ select{
 	position:absolute;
 	z-index:1; 
 	right:5%; 
-	bottom:10%;
+	bottom:8%;
 	font-size:1.5rem;
 	transform:scale(1.2)
 	}
@@ -266,7 +266,7 @@ select{
 	
 	/* Caja de configuracion */
 	.theme-config{
-		top:30%;
+		top:25%;
 	}
 	@media (max-width: 768px) {
 		.theme-config{
@@ -292,4 +292,7 @@ select{
 	.setings-item{
 		padding-left:0;
 		padding-right:0;
+	}
+	.fa-stack{
+		left:-6px;
 	}
