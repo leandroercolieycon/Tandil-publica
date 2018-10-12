@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var pv = [], pvm = [], park = [], parkm = [], parkmCircles=[], pvCircles = [], map = {}, Debug = {}, timer = {}, caducity = {}, __clear = null;
+	var pv = [], pvm = [], park = [], parkm = [], parkmCircles = [], pvCircles = [], map = {}, Debug = {}, timer = {}, caducity = {}, __clear = null;
 	var userMarker, userCircleMarker;
 
 	$.ajax({
@@ -7,10 +7,10 @@ $(document).ready(function () {
 		url: "getpv",
 		data: "",
 		success: function (msg) {
-			pv = eval(msg);		
+			pv = eval(msg);
 		},
 		error: function (msg) {
-			alert("No se encontraron puntos de recarga.");
+			//alert("No se encontraron puntos de recarga.");
 		}
 	});
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
 			$('#configbox').toggleClass('sk-loading')
 		},
 		error: function (msg) {
-			alert("No se encontraron parquímetros.");
+			//alert("No se encontraron parquímetros.");
 		}
 	});
 
@@ -78,21 +78,6 @@ $(document).ready(function () {
 			}
 		};
 
-	timer =
-		{
-			kill: 10000,
-			o: {},
-			_do: function () {
-				$("#item-recorrido").change();
-			},
-			start: function () {
-				try { this.o = setInterval(this._do, this.kill); } catch (ex) { }
-			},
-			end: function () {
-				try { clearInterval(this.o); } catch (ex) { }
-			}
-		};
-
 	caducity =
 		{
 			kill: 1000 * 60 * 2,
@@ -111,7 +96,7 @@ $(document).ready(function () {
 
 	fn_idle = function () { caducity.end(); caducity.start(); };
 
-	var map = L.map("mapa", {zoomControl: true}).setView([-37.325969,-59.1381165], 14);
+	var map = L.map("mapa", { zoomControl: true }).setView([-37.325969, -59.1381165], 14);
 	L.tileLayer
 		(
 		"http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -133,15 +118,15 @@ $(document).ready(function () {
 			iconAnchor: [12, 41],
 			popupAnchor: [1, -34],
 			shadowSize: [41, 41]
-		  });
-		userMarker = new L.marker(e.latlng, {icon: yellowIcon});	
+		});
+		userMarker = new L.marker(e.latlng, { icon: yellowIcon });
 		map.addLayer(userMarker);
-		userCircleMarker = new L.circle(e.latlng, radius, {color: '#F5D907', opacity:.5});
-		map.addLayer(userCircleMarker);	
-		if($("#switch-parquimetros").is(':checked')){
+		userCircleMarker = new L.circle(e.latlng, radius, { color: '#F5D907', opacity: .5 });
+		map.addLayer(userCircleMarker);
+		if ($("#switch-parquimetros").is(':checked')) {
 			mostrarParquimetros();
 		}
-		if($("#switch-pv").is(':checked')){
+		if ($("#switch-pv").is(':checked')) {
 			mostrarPv();
 		}
 	});
@@ -153,7 +138,7 @@ $(document).ready(function () {
 	$(document).on('click', '#btn-geo', function (e) {
 		map.removeLayer(userMarker);
 		map.removeLayer(userCircleMarker)
-		map.locate({setView: true, maxZoom: 17});		
+		map.locate({ setView: true, maxZoom: 17 });
 	});
 
 	var MyControlProvider = L.Control.extend(
@@ -198,7 +183,7 @@ $(document).ready(function () {
 			caducity.end();
 			clearOverlays();
 		}
-	});	
+	});
 
 	/* Cambios en checkbox PUESTOS DE RECARGA, mostrar/ocultar pr */
 	$("#switch-pv").change(function (e) {
@@ -214,40 +199,40 @@ $(document).ready(function () {
 		}
 	});
 
-	function mostrarParquimetros(){
+	function mostrarParquimetros() {
 		__clear.layer();
 		__clear.array(parkm);
 		__clear.array(parkmCircles);
 		timer.end();
 		clearOverlays();
 		caducity.end();
-	
+
 		var myIcon = L.icon(
 			{
 				iconUrl: 'img/if_parking.png',
 				iconSize: [32, 37]
 			});
-	
+
 		parkm = [];
-		parkmCircles = [];		
-	
+		parkmCircles = [];
+
 		for (var i in park) {
-			if(park[i].lat && park[i].lon)
+			if (park[i].lat && park[i].lon)
 				var tmp = L.marker([park[i].lat, park[i].lon], { icon: myIcon, title: park[i].ad })
-			if(userMarker){ // Agregar circulos a los parquímetros cercanos
+			if (userMarker) { // Agregar circulos a los parquímetros cercanos
 				var distAParquimetro = userMarker.getLatLng().distanceTo(tmp.getLatLng());
-				if(distAParquimetro < 150){
-					var tmpCircleMarker = (new L.marker(tmp.getLatLng(), {icon: L.divIcon({iconSize: [75, 75], className: 'circlemarker'})})).addTo(map);
+				if (distAParquimetro < 150) {
+					var tmpCircleMarker = (new L.marker(tmp.getLatLng(), { icon: L.divIcon({ iconSize: [75, 75], className: 'circlemarker' }) })).addTo(map);
 					parkmCircles.push(tmpCircleMarker);
-				}					
-			}				
+				}
+			}
 			tmp.addTo(map);
 			parkm.push(tmp);
-			tmp.bindPopup('<div style="text-align:center">' + park[i].ad + '</div>');	
+			tmp.bindPopup('<div style="text-align:center">' + park[i].ad + '</div>');
 		}
 	}
 
-	function mostrarPv(){
+	function mostrarPv() {
 		__clear.layer();
 		__clear.array(pvm);
 		__clear.array(pvCircles);
@@ -265,38 +250,314 @@ $(document).ready(function () {
 		pvCircles = [];
 
 		for (var i in pv) {
-			if(pv[i].latitud && pv[i].longitud)
+			if (pv[i].latitud && pv[i].longitud)
 				var tmp = L.marker([pv[i].latitud, pv[i].longitud], { icon: myIcon, title: pv[i].direccion });
-			if(userMarker){ // Agregar circulos a los parquímetros cercanos
+			if (userMarker) { // Agregar circulos a los parquímetros cercanos
 				var distAPv = userMarker.getLatLng().distanceTo(tmp.getLatLng());
-				if(distAPv < 350){
-					var tmpCircleMarker = (new L.marker(tmp.getLatLng(), {icon: L.divIcon({iconSize: [75, 75], className: 'circlemarker-pv'})})).addTo(map);
+				if (distAPv < 350) {
+					var tmpCircleMarker = (new L.marker(tmp.getLatLng(), { icon: L.divIcon({ iconSize: [75, 75], className: 'circlemarker-pv' }) })).addTo(map);
 					pvCircles.push(tmpCircleMarker);
-				}					
-			}	
+				}
+			}
 			tmp.addTo(map);
 			pvm.push(tmp);
 			tmp.bindPopup('<div style="text-align:center">' + pv[i].direccion + '<br>' + pv[i].razon_social + '</div>');
 		}
-	}	
-
-	
-});
-
-/* Cerrar el navbar collapsible cuando se selecciona una opción */
-$(document).on('click', '.navbar-collapse.in', function (e) {
-	if ($(e.target).is('a')) {
-		$(this).collapse('hide');
 	}
+
+
+	/* Cerrar el navbar collapsible cuando se selecciona una opción */
+	$(document).on('click', '.navbar-collapse.in', function (e) {
+		if ($(e.target).is('a')) {
+			$(this).collapse('hide');
+		}
+	});
+
+	/* Caja de configuración */
+	// SKIN Select
+	$('.spin-icon').click(function () {
+		$(".theme-config-box").toggleClass("show");
+	});
+	$('#mapa').on('click touchstart', function () {
+		if ($(".theme-config-box").is(".show")) {
+			$(".theme-config-box").toggleClass("show");
+		}
+	})
+
+
+	var lineasMostradas = [];
+	var buses = [];
+	var buses500Markers = [], buses501Markers = [], buses502Markers = [], buses503Markers = [], buses504Markers = [], buses505Markers = [];
+	var buses500Circles = [], buses501Circles = [], buses502Circles = [], buses503Circles = [], buses504Circles = [], buses505Circles = [];
+	var recorridos500 = [], recorridos501 = [], recorridos502 = [], recorridos503 = [], recorridos504 = [], recorridos505 = [];
+
+	timer =
+		{
+			kill: 10000,
+			o: {},
+			_do: function () {
+				console.log("update");
+				lineasMostradas.forEach(linea =>{
+					mostarLinea(linea);
+				})	
+			},
+			start: function () {
+				try { this.o = setInterval(this._do, this.kill); } catch (ex) { }
+			},
+			end: function () {
+				try { clearInterval(this.o); } catch (ex) { }
+			}
+		};
+
+	/* Cambios en checkbox LINEA 500 */
+	$("#linea500").change(function (e) {
+		if (this.checked) { //mostrar pr
+			mostrarRecorrido("500");
+			mostarLinea("500");
+		} else { //ocultar marcadores
+			__clear.layer();
+			__clear.array(buses500Markers);
+			__clear.array(buses500Circles);
+			__clear.array(recorridos500);
+			timer.end();
+			caducity.end();
+			clearOverlays();
+		}
+	});
+
+	/* Cambios en checkbox LINEA 501 */
+	$("#linea501").change(function (e) {
+		if (this.checked) { //mostrar pr
+			mostrarRecorrido("501");
+			mostarLinea("501");
+		} else { //ocultar marcadores
+			__clear.layer();
+			__clear.array(buses501Markers);
+			__clear.array(buses501Circles);
+			__clear.array(recorridos501);
+			timer.end();
+			caducity.end();
+			clearOverlays();
+		}
+	});
+
+	/* Cambios en checkbox LINEA 502 */
+	$("#linea502").change(function (e) {
+		if (this.checked) { //mostrar pr
+			mostrarRecorrido("502");
+			mostarLinea("502");
+		} else { //ocultar marcadores
+			__clear.layer();
+			__clear.array(buses502Markers);
+			__clear.array(buses502Circles);
+			__clear.array(recorridos502);
+			timer.end();
+			caducity.end();
+			clearOverlays();
+		}
+	});
+
+	/* Cambios en checkbox LINEA 503 */
+	$("#linea503").change(function (e) {
+		if (this.checked) { //mostrar pr
+			mostrarRecorrido("503");
+			mostarLinea("503");
+		} else { //ocultar marcadores
+			__clear.layer();
+			__clear.array(buses503Markers);
+			__clear.array(buses503Circles);
+			__clear.array(recorridos503);
+			timer.end();
+			caducity.end();
+			clearOverlays();
+		}
+	});
+
+	/* Cambios en checkbox LINEA 504 */
+	$("#linea504").change(function (e) {
+		if (this.checked) { //mostrar pr
+			mostrarRecorrido("504");
+			mostarLinea("504");
+		} else { //ocultar marcadores
+			__clear.layer();
+			__clear.array(buses504Markers);
+			__clear.array(buses504Circles);
+			__clear.array(recorridos504);
+			timer.end();
+			caducity.end();
+			clearOverlays();
+		}
+	});
+
+	/* Cambios en checkbox LINEA 505 */
+	$("#linea505").change(function (e) {
+		if (this.checked) { //mostrar pr
+			mostrarRecorrido("505");
+			mostarLinea("505");
+		} else { //ocultar marcadores
+			__clear.layer();
+			__clear.array(buses505Markers);
+			__clear.array(buses505Circles);
+			__clear.array(recorridos505);
+			timer.end();
+			caducity.end();
+			clearOverlays();
+		}
+	});
+
+	function mostrarRecorrido(linea) {
+		$.ajax(
+			{
+				type: 'GET',
+				url: "getRecorrido",
+				data: {
+					l: linea
+				},
+				success: function (msg) {
+					var recorrido = eval(msg);
+					recorrido.forEach(r =>{
+						if(r.puntos !== null){
+							var polyline = L.polyline(eval(r.puntos), {color: 'red'}).addTo(map);
+							map.fitBounds(polyline.getBounds());// zoom the map to the polyline
+							switch (linea) {  // Clear el arreglo de marcadores correspondiente a la linea
+								case "500":
+									recorridos500.push(polyline);
+									break;
+								case "501":
+									recorridos501.push(polyline);
+									break;
+								case "502":
+									recorridos502.push(polyline);
+									break;
+								case "503":
+									recorridos503.push(polyline);
+									break;
+								case "504":
+									recorridos504.push(polyline);
+									break;
+								case "505":
+									recorridos505.push(polyline);
+									break;
+							}							
+						}
+					})						
+				}
+			});
+	}
+
+	function mostarLinea(linea) {
+		$.ajax(
+			{
+				type: 'GET',
+				url: "getLineas",
+				data: {
+					l: linea
+				},
+				success: function (msg) {
+					buses = eval(msg);
+
+					timer.end(); 
+					timer.start(); 
+
+					lineasMostradas.push(linea);
+					switch (linea) {  // Clear el arreglo de marcadores correspondiente a la linea
+						case "500":
+							__clear.array(buses500Markers);
+							__clear.array(buses500Circles);
+							break;
+						case "501":
+						__clear.array(buses501Markers);
+						__clear.array(buses501Circles);
+							break;
+						case "502":
+						__clear.array(buses502Markers);
+						__clear.array(buses502Circles);
+							break;
+						case "503":
+						__clear.array(buses503Markers);
+						__clear.array(buses503Circles);
+							break;
+						case "504":
+						__clear.array(buses504Markers);
+						__clear.array(buses504Circles);
+							break;
+						case "505":
+						__clear.array(buses505Markers);
+						__clear.array(buses505Circles);
+							break;
+					}
+					iconUrl = "img/bus-icon.png";
+					buses.forEach(bus => {  // Agregar marcadores al mapa y al arreglo correspondiente a la linea
+						/*var distancia;
+						if (userMarker) { // Obtener la distancia al usuario para agregar al popup
+							var distancia = userMarker.getLatLng().distanceTo(tmp.getLatLng());
+							if (distAParquimetro < 150) {
+								var tmpCircleMarker = (new L.marker(tmp.getLatLng(), { icon: L.divIcon({ iconSize: [75, 75], className: 'circlemarker' }) })).addTo(map);
+								parkmCircles.push(tmpCircleMarker);
+							}
+						}*/
+						switch (linea) {
+							case "500":
+								buses500Circles.push(
+									(new L.marker([bus.latitud, bus.longitud], { icon: L.divIcon({ iconSize: [65, 65], className: 'circlemarker-bus500' }) }))
+										.addTo(map));
+								buses500Markers.push(
+									(new L.marker([bus.latitud, bus.longitud], { icon: L.icon({iconUrl: iconUrl, iconSize: [45, 43]}), title: bus.addr }))
+										.bindPopup('<div style="text-align:center">[' + bus.unidad + ']&nbsp;&nbsp;' + bus.hora + '&nbsp;&nbsp;' + bus.velocidad +'km/h<br>'+ bus.addr + '</div>')
+										.addTo(map));							
+								break;
+							case "501":
+							buses501Circles.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.divIcon({ iconSize: [65, 65], className: 'circlemarker-bus501' }) }))
+									.addTo(map));
+							buses501Markers.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.icon({iconUrl: iconUrl, iconSize: [45, 43]}), title: bus.addr }))
+									.bindPopup('<div style="text-align:center">[' + bus.unidad + ']&nbsp;&nbsp;' + bus.hora + '&nbsp;&nbsp;' + bus.velocidad +'km/h<br>'+ bus.addr + '</div>')
+									.addTo(map));	
+								break;
+							case "502":
+							buses502Circles.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.divIcon({ iconSize: [65, 65], className: 'circlemarker-bus502' }) }))
+									.addTo(map));
+							buses502Markers.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.icon({iconUrl: iconUrl, iconSize: [45, 43]}), title: bus.addr }))
+									.bindPopup('<div style="text-align:center">[' + bus.unidad + ']&nbsp;&nbsp;' + bus.hora + '&nbsp;&nbsp;' + bus.velocidad +'km/h<br>'+ bus.addr + '</div>')
+									.addTo(map));	
+								break;
+							case "503":
+							buses503Circles.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.divIcon({ iconSize: [65, 65], className: 'circlemarker-bus503' }) }))
+									.addTo(map));
+							buses503Markers.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.icon({iconUrl: iconUrl, iconSize: [45, 43]}), title: bus.addr }))
+									.bindPopup('<div style="text-align:center">[' + bus.unidad + ']&nbsp;&nbsp;' + bus.hora + '&nbsp;&nbsp;' + bus.velocidad +'km/h<br>'+ bus.addr + '</div>')
+									.addTo(map));	
+								break;
+							case "504":
+							buses504Circles.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.divIcon({ iconSize: [65, 65], className: 'circlemarker-bus504' }) }))
+									.addTo(map));
+							buses504Markers.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.icon({iconUrl: iconUrl, iconSize: [45, 43]}), title: bus.addr }))
+									.bindPopup('<div style="text-align:center">[' + bus.unidad + ']&nbsp;&nbsp;' + bus.hora + '&nbsp;&nbsp;' + bus.velocidad +'km/h<br>'+ bus.addr + '</div>')
+									.addTo(map));	
+								break;
+							case "505":
+							buses505Circles.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.divIcon({ iconSize: [65, 65], className: 'circlemarker-bus505' }) }))
+									.addTo(map));
+							buses505Markers.push(
+								(new L.marker([bus.latitud, bus.longitud], { icon: L.icon({iconUrl: iconUrl, iconSize: [45, 43]}), title: bus.addr }))
+									.bindPopup('<div style="text-align:center">[' + bus.unidad + ']&nbsp;&nbsp;' + bus.hora + '&nbsp;&nbsp;' + bus.velocidad +'km/h<br>'+ bus.addr + '</div>')
+									.addTo(map));	
+								break;
+						}
+					});
+				}
+			});
+	}
+
 });
 
-/* Caja de configuración */
-        // SKIN Select
-        $('.spin-icon').click(function () {
-            $(".theme-config-box").toggleClass("show");
-		});
-		$('#mapa').on('click touchstart', function(){
-			if ($(".theme-config-box").is(".show" ) ) { 
-				$(".theme-config-box").toggleClass("show");		 
-			}
-		})
+
+

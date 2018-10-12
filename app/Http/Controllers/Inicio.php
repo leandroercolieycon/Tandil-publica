@@ -16,12 +16,12 @@ class Inicio extends Controller
     }
     
     public function get_prk(Request $request){
-        $prk = DB::select("CALL sp_webpublic_get_prk()");
+        $prk = DB::connection("mysql_db_prod")->select("CALL sp_webpublic_get_prk()");
         return $prk;
     }
 
     public function get_pv(Request $request){
-        $pv = DB::select("CALL sp_webpublic_get_pv()");
+        $pv = DB::connection("mysql_db_prod")->select("CALL sp_webpublic_get_pv()");
         return $pv;
     }
 }

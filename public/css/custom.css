@@ -248,6 +248,36 @@ select{
 	border: 3px solid rgba(252, 148, 28	,0.4);
 	border-radius: 50%;
   }
+  .circlemarker-bus500{
+	background: radial-gradient(rgba(255, 235, 59, 1), rgba(255, 235, 59, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(255, 235, 59);
+  }
+  .circlemarker-bus501{
+	background: radial-gradient(rgba(244, 67, 54, 1), rgba(244, 67, 54, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(244, 67, 54);
+  }
+  .circlemarker-bus502{
+	background: radial-gradient(rgba(255,255,255, 1), rgba(255,255,255, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(255,255,255);
+  }
+  .circlemarker-bus503{
+	background: radial-gradient(rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(33, 150, 243);
+  }
+  .circlemarker-bus504{
+	background: radial-gradient(rgba(76, 175, 80, 1), rgba(76, 175, 80, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(76, 175, 80);
+  }
+  .circlemarker-bus505{
+	background: radial-gradient(rgba(121, 85, 72, 1), rgba(121, 85, 72, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(121, 85, 72);
+  }
   #copyright-eycon{
 	position:absolute; 
 	z-index:1; 
