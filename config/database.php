@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql_db_prod'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,13 +39,13 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => [
+        'mysql_etrack' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'larioja-dbserver.cw3jfgbglrxd.us-east-1.rds.amazonaws.com'),
+            'host' => env('DB_HOST', 'dbserver.cg3htghp5lwt.us-east-1.rds.amazonaws.com'),
             'port' => env('DB_PORT', ''),
-            'database' => env('DB_DATABASE', 'db_prod'),
-            'username' => env('DB_USERNAME', 'web_semivm'),
-            'password' => env('DB_PASSWORD', 'SemiConex_DB15'),
+            'database' => env('DB_DATABASE', 'etrack'),
+            'username' => env('DB_USERNAME', 'web_gpssumo'),
+            'password' => env('DB_PASSWORD', 'SumConex_DB15'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
@@ -54,13 +54,28 @@ return [
             'engine' => null,
         ],
 
-        'mysql2' => [
+        'mysql_db_prod' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_REGISTRAR', 'larioja-dbserver.cw3jfgbglrxd.us-east-1.rds.amazonaws.com'),
+            'host' => env('DB_HOST_REGISTRAR', 'dbserver.cg3htghp5lwt.us-east-1.rds.amazonaws.com'),
             'port' => env('DB_PORT_REGISTRAR', ''),
-            'database' => env('DB_DATABASE_REGISTRAR', 'db_parking_auv'),
-            'username' => env('DB_USERNAME_REGISTRAR', 'web_semivm'),
-            'password' => env('DB_PASSWORD_REGISTRAR', 'SemiConex_DB15'),
+            'database' => env('DB_DATABASE_REGISTRAR', 'db_prod'),
+            'username' => env('DB_USERNAME_REGISTRAR', 'web_gpssumo'),
+            'password' => env('DB_PASSWORD_REGISTRAR', 'SumConex_DB15'),
+            'unix_socket' => env('DB_SOCKET_REGISTRAR', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_general_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'mysql_earth' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_REGISTRAR', 'dbserver.cg3htghp5lwt.us-east-1.rds.amazonaws.com'),
+            'port' => env('DB_PORT_REGISTRAR', ''),
+            'database' => env('DB_DATABASE_REGISTRAR', 'earth'),
+            'username' => env('DB_USERNAME_REGISTRAR', 'web_gpssumo'),
+            'password' => env('DB_PASSWORD_REGISTRAR', 'SumConex_DB15'),
             'unix_socket' => env('DB_SOCKET_REGISTRAR', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',

@@ -4,7 +4,7 @@ body,html	{ width:100%; height:100%;}
 .center		{ height:96%;width:100%;	}
 .table-logo{ margin:0px; padding:0px; border-collapse:collapse;}
 .table-logo tr, .table-logo td{  margin:0px; padding:0px; }
-.box-header{ background:#b15590; border-bottom:1pt solid #b15590; }
+.box-header{ background:#F5D907; border-bottom:1pt solid #F5D907; }
 .hide{display:none;}
 
 .item-recorrido-class {font-size:16px;}
@@ -16,9 +16,10 @@ body,html	{ width:100%; height:100%;}
 		z-index: 900;
 }
 
-#logo-larioja, #logo-larioja2{
-			height: 55px;			
-			width: 180px;			
+#logo-sumo, #logo-tandil{
+			height: 55px;	
+			margin: 0 0 15px 0;	
+			padding-top: 15px;
 }
 
 .clear{
@@ -27,7 +28,7 @@ body,html	{ width:100%; height:100%;}
 
 .north{
 	height:auto;
-	background:#b15590;
+	background:#F5D907;
 	box-shadow: 0 0 2px 1px black;
 } 
 
@@ -71,7 +72,7 @@ select{
 
 .btn_contacto
 { 
-	background:#b15590;
+	background:#F5D907;
 	color:#fff;
 	display:inline-block;
 	font-size:1.25em;
@@ -87,20 +88,22 @@ select{
 
 /* EDICIONES DE INSPINIA */
 .landing-page .btn-primary.btn-outline{
-	color: #b15590;
+	color: #F5D907;
 	background-color: transparent;
     transition: all .5s;
 }
-
 .landing-page .btn-primary{
 	padding: .375rem .75rem !important;
 }
 .btn-primary:hover, 
 .btn-primary:focus {
-	background-color: #b13383 !important;
-	border-color: #b13383 !important;
+	background-color: rgb(245, 200, 7) !important;
+	border-color: rgb(245, 200, 7) !important;
 }
-
+.landing-page .navbar-default .navbar-brand:hover,
+.landing-page .navbar-default .navbar-brand:focus {
+  background: rgb(245, 200, 7) !important;
+}
 /*  Spinner de carga de tarjeta  */
 .modal_spinner > .sk-spinner{
 	display: none;
@@ -167,8 +170,163 @@ select{
 	margin-bottom: 10px;
 }
 
-.bootstrap-datetimepicker-widget{
-	display: block !important;
-}
-
-div.date > div { display: block !important;}
+.navbar-collapse.collapse.in {
+	display: block!important;
+  }
+  #btn-parking{
+	position:absolute; 
+	z-index:1; 
+	left:3%;
+	bottom:8%;
+	padding:1.5rem 1.5rem 0 0.2rem;
+	font-size:1rem;
+	line-height:1rem;
+	background:  rgba(245, 217, 7,0.9); /*rgba(255,255,255,0.8);*/
+	border-radius: 0.2rem;
+	color:#676a6c;
+  }
+  #btn-parking .checkbox{
+	display:inline-block;
+	margin-bottom:1rem;
+  }
+  #btn-geo{
+	position:absolute;
+	z-index:1; 
+	right:5%; 
+	bottom:8%;
+	font-size:1.5rem;
+	transform:scale(1.2)
+	}
+	#btn-colectivos{
+		position:absolute;
+		z-index:1; 
+		right:10%; 
+		bottom:10%;
+		font-size:1.5rem;
+		transform:scale(1.2)
+		}
+  @media (max-width: 768px) {
+	#btn-parking {
+	  position:absolute;     
+	  z-index:1; 
+	  width:100%;
+	  left:0;
+	  bottom:6%;
+	  padding:1.5rem 0 0 0.2rem;
+	  font-size:1rem;
+	  background: rgba(245, 217, 7,0.9);
+	  border-radius: 0.2rem;
+	  text-align:center;
+	}
+	#btn-geo{
+	  position:absolute;
+	  z-index:1; 
+	  right:5%; 
+	  bottom:10%;
+	  font-size:1.5rem;
+	  transform:scale(1)
+	}
+	#btn-colectivos{
+	  position:absolute;
+	  z-index:1; 
+	  right:10%; 
+	  bottom:20%;
+	  font-size:1.5rem;
+	  transform:scale(1)
+	}
+	#chartMovimientos{
+	  height:240px;
+	}
+  }
+  .oculto{
+	display: none;
+  }
+  
+  .circlemarker{
+	background-color: rgba(245, 217, 7	,0.4);
+	border: 3px solid rgba(245, 217, 7	,0.6);
+	border-radius: 50%;
+  }
+  .circlemarker-pv{
+	background-color: rgba(252, 148, 28	,0.2);
+	border: 3px solid rgba(252, 148, 28	,0.4);
+	border-radius: 50%;
+  }
+  .circlemarker-bus500{
+	background: radial-gradient(rgba(255, 235, 59, 1), rgba(255, 235, 59, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(255, 235, 59);
+  }
+  .circlemarker-bus501{
+	background: radial-gradient(rgba(244, 67, 54, 1), rgba(244, 67, 54, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(244, 67, 54);
+  }
+  .circlemarker-bus502{
+	background: radial-gradient(rgba(255,255,255, 1), rgba(255,255,255, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(255,255,255);
+  }
+  .circlemarker-bus503{
+	background: radial-gradient(rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(33, 150, 243);
+  }
+  .circlemarker-bus504{
+	background: radial-gradient(rgba(76, 175, 80, 1), rgba(76, 175, 80, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(76, 175, 80);
+  }
+  .circlemarker-bus505{
+	background: radial-gradient(rgba(121, 85, 72, 1), rgba(121, 85, 72, 0.1));
+	border-radius: 50%;
+	box-shadow: 0 0 15px rgb(121, 85, 72);
+  }
+  #copyright-eycon{
+	position:absolute; 
+	z-index:1; 
+	left:1%;
+	bottom:0;
+	padding-top:0.2rem;
+	padding-bottom:0.2rem;
+	text-align:center;
+	font-size:1rem;
+	line-height:1rem;
+	background:  rgba(245, 217, 7,0.9);
+	border: rgba(245, 217, 7) 1px solid;
+	border-radius: 0.2rem;
+	color:#676a6c;
+	}
+	
+	/* Caja de configuracion */
+	.theme-config{
+		top:25%;
+	}
+	@media (max-width: 768px) {
+		.theme-config{
+			top:auto;
+			bottom:9%;
+		}
+	}
+	.theme-config-box { /* Cuando se oculta */
+		margin-right: -280px;
+	  }
+	.theme-config i{
+		color:#676a6c;
+	}
+	.theme-config .skin-settings{
+		width:280px;
+	}
+	.onoffswitch-inner:before {
+		content: "";
+	}
+	.onoffswitch-inner:after {
+		content: "";
+	}
+	.setings-item{
+		padding-left:0;
+		padding-right:0;
+	}
+	.fa-stack{
+		left:-6px;
+	}

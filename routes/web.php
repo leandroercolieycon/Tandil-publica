@@ -36,3 +36,7 @@ Route::post('/contacto', 'Contacto@post');
 Route::get('/getprk', 'Inicio@get_prk');
 
 Route::get('/getpv', 'Inicio@get_pv');
+
+Route::get('/getLineas', 'Lineas@getLineas');
+
+Route::get('/getRecorrido', 'Lineas@getRecorrido');
