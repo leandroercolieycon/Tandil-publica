@@ -66,7 +66,5 @@ class Lineas extends Controller
         }
         $recorrido = DB::connection("mysql_earth")->select("select * from recorridos where codigo_empresa = ". $empresa);
         return $recorrido;
-    }
-
-   
+    }   
 }
