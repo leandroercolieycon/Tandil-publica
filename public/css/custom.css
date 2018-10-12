@@ -161,3 +161,14 @@ select{
     right: 0;
     bottom: 0;
 }
+
+#saldo_pendiente{
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.bootstrap-datetimepicker-widget{
+	display: block !important;
+}
+
+div.date > div { display: block !important;}

@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="row justify-content-md-center">
-                    <div class="col-lg-12 col-md-12 wow fadeInRight">      
+                    <div class="col-lg-12 col-md-12 wow fadeInRight">     
                         <form id="formMovimientos" class="form-horizontal">
                             {{ csrf_field() }}
                             <div class="form-group">
@@ -40,7 +40,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label>Número de tarjeta</label>
-                                    <input name="tarjeta" type="number" class="form-control" required value="40000011">
+                                    <input name="tarjeta" type="number" class="form-control" required value="30037212">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -50,15 +50,16 @@
                             </div>
 
                         </form>
-                    </div>                  
+                    </div>                 
                     <div class="col-lg-4 col-sm-12 pull-right oculto" id="saldo">
-                                    <div class="widget style1 navy-bg">
-                                        <div class="vertical-align">
-                                            <i class="fa fa-dollar fa-3x" style="margin-right:0.4rem;"></i>
-                                            <h2 class="font-bold pull-right"><span></span></h2>
-                                        </div>
-                                    </div>
-                        </div>  
+                        <div class="widget style1 navy-bg">
+                            <div class="vertical-align">
+                                <i class="fa fa-dollar fa-3x" style="margin-right:0.4rem;"></i>
+                                <h2 class="font-bold pull-right"><span></span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" id="saldo_pendiente" hidden>Saldo pendiente de acreditaci&oacute;n: $<span></span></div> 
                     <div class="col-lg-12 oculto" id="tabla-movimientos" style="text-align:center">                                             
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">                                

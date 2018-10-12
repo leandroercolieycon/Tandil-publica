@@ -7,7 +7,7 @@
     <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
             <div class="container">
-                <a href="http://www.municipiolarioja.gob.ar/" target="_blank" class="navbar-brand"><img src="images/logo_la_rioja.png"
+                <a href="http://www.municipiolarioja.gob.ar/" target="_blank" class="navbar-brand"><img src="images/logo-sumo-app.png"
                         id='logo-larioja' alt="La Rioja - Argentina"></a>
                 <div class="navbar-header page-scroll">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -16,13 +16,11 @@
                 </div>
                 <div class="collapse navbar-collapse justify-content-end " id="navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-tarjeta">Solicitud
-                                Tarjeta</a></li>
-                        <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-registro">Registrarse</a></li>
                         <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-movimientos">Movimientos</a></li>
-                        <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-cargarsaldo">Cargar
-                                saldo</a></li>
-                        <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-contacto">Contacto</a></li>
+                        <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-personalizar">Personalizar Tarjeta</a></li>
+                        {{-- <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-cargarsaldo">Cargar
+                                saldo</a></li> --}}
+                        {{-- <li class="shadow-sm"><a class="nav-link page-scroll" href="#" data-toggle="modal" data-target="#modal-contacto">Contacto</a></li> --}}
                     </ul>
                 </div>
             </div>
@@ -58,13 +56,9 @@
         </div>
     </div>
 
-    @include('layout_solicitud')
-
-    @include('layout_registro')
+    @include('personalizacion.layout_personalizar')
 
     @include('layout_movimientos')
-
-    @include('layout_cargarsaldo')
 
     @include('layout_contacto')
 

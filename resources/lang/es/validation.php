@@ -169,8 +169,11 @@ return [
                 'dni' => 'DNI',
                 'razon_social' => 'Raz&oacute;n Social',
                 'cuit' => 'CUIT',
+                'direccion' => 'Direcci&oacute;n',
+                'fecha_nac' => 'Fecha de Nacimiento',
                 'email' => 'E-mail',
                 'email_repeat' => 'Repetir E-mail',
+                'nro_tarjeta' => 'N&uacute;mero de Tarjeta',
                 /*'email_registro' => 'E-mail',*/
                 'telefono' => 'Tel&eacute;fono',
                 'telefono_registro' => 'Tel&eacute;fono',

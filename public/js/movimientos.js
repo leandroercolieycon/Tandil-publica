@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	/*   Recibe los datos del formulario de movimientos, envia un mensaje de exito o fracaso. Envia a traves de AJAX los campos de formulario para que sean validados    */
 	$(document).on('click', '#btn_movimientos', function (event) {
 
@@ -30,6 +31,7 @@ $(document).ready(function() {
 						},
 			
 						success: function (data) {
+
 							$('.alerta_validacion_movimientos').html('')
 			
 							if (data.errors != undefined) {
@@ -50,14 +52,14 @@ $(document).ready(function() {
 								// Crear tabla
 								$("#tabla-movimientoss").footable();
 								var gastos = [], mes = [];
-								data.forEach(element => {
+								data.movimientos.forEach(element => {
 									gastos.push(parseInt(element["IMPORTE"]));
 									mes.push(parseInt(String(element["FECHA_EMISION"]).slice(3,5)));
 									$("#tabla-movimientoss tbody").append('<tr><td>' + String(element["FECHA_EMISION"]).slice(0,10) + ' ' + String(element["FECHA_EMISION"]).slice(12,17) +'</td><td>' 
 																				+ String(element["TIPO"]).charAt(0).toUpperCase() + String(element["TIPO"]).slice(1).toLowerCase() +'</td><td>' 
 																				+ element["RECORRIDO"]+'</td><td align="right">' 
-																				+ '$' + element["IMPORTE"]+'</td><td align="right">' 
-																				+ '$' + element["SALDO"]+ '</tr>');
+																				+ '$' + formatNumber(element["IMPORTE"])+'</td><td align="right">' 
+																				+ '$' + formatNumber(element["SALDO"])+ '</tr>');
 								});	
 								gastos.reverse();
 								mes.reverse();
@@ -65,7 +67,11 @@ $(document).ready(function() {
 								
 								// Obtener saldo de la tarjeta (ultimo movimiento)
 								$('#saldo').toggleClass('oculto')
-								$('#saldo span').text(data[0]["SALDO"]);
+								$('#saldo span').text(formatNumber(data.movimientos[0]["SALDO"]));
+
+								//Inserta el saldo pendiente de acreditacion y lo muestra en pantalla
+								$('#saldo_pendiente span').text(formatNumber(data.saldo_pendiente[0]["importe"]))
+								$('#saldo_pendiente').removeAttr('hidden')
 			
 								// Construir chart con movimientos por mes
 								if(gastos.length > 0){

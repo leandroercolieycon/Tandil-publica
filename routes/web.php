@@ -13,11 +13,13 @@
 
 Route::get('/', 'Inicio@index');
 
-Route::post('/solicitar', 'SolicitarTarjeta@post');
+Route::post('/personalizar', 'Personalizar@consultar');
 
-Route::post('/solicitar/log_error', 'SolicitarTarjeta@log_error');
+Route::post('/personalizar/registrar', 'Personalizar@registrar');
 
-Route::post('/registrar', 'Registrar@post');
+Route::get('/personalizar/datos_enviados', 'Personalizar@datos_enviados');
+
+Route::post('/personalizar/log_error', 'Personalizar@log_error');
 
 Route::get('/registrar/confirmar/{random_code}', 'Registrar@confirmar');
 

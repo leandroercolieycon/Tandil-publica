@@ -19,11 +19,12 @@
     <script type="text/javascript" src="{!! asset('js/L.Control.Pan.js') !!}"></script>
 
     <script type="text/javascript" src="{!! asset('js/custom.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/solicitud.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/registro.js') !!}"></script>
+{{--     <script type="text/javascript" src="{!! asset('js/solicitud.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/registro.js') !!}"></script> --}}
     <script type="text/javascript" src="{!! asset('js/movimientos.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/cargarsaldo.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/contacto.js') !!}"></script>
+{{--     <script type="text/javascript" src="{!! asset('js/cargarsaldo.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/contacto.js') !!}"></script> --}}
+    <script type="text/javascript" src="{!! asset('js/personalizar.js') !!}"></script>
 
     <!-- FooTable -->
     <script src="{!! asset('js/plugins/footable/footable.all.min.js') !!}"></script>
@@ -33,6 +34,9 @@
 
     <!-- reCAPTCHA -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    {{-- JQuery UI --}}
+    <script type="text/javascript" src="{!! asset('js/jquery-ui/jquery-ui.min.js') !!}"></script>
 
     {{-- BASE_URL --}}
     <script>
