@@ -488,14 +488,7 @@ $(document).ready(function () {
 					}
 					iconUrl = "img/bus-icon.png";
 					buses.forEach(bus => {  // Agregar marcadores al mapa y al arreglo correspondiente a la linea
-						/*var distancia;
-						if (userMarker) { // Obtener la distancia al usuario para agregar al popup
-							var distancia = userMarker.getLatLng().distanceTo(tmp.getLatLng());
-							if (distAParquimetro < 150) {
-								var tmpCircleMarker = (new L.marker(tmp.getLatLng(), { icon: L.divIcon({ iconSize: [75, 75], className: 'circlemarker' }) })).addTo(map);
-								parkmCircles.push(tmpCircleMarker);
-							}
-						}*/
+						console.log(bus);
 						switch (linea) {
 							case "500":
 								buses500Circles.push(
