@@ -28,8 +28,10 @@
         <p>Bienvenido a <strong>Sumo!</strong></p>
         <p>Le enviaremos un correo y un sms para completar la Personalizaci&oacute;n. Por favor, revise su casilla de e-mail y su celular.</p>
         <p>Tel&eacute;fono: {{ app('request')->input('telefono') }}<br>E-mail: {{ app('request')->input('email') }}</p>
-        <p>En caso de no haber recibido el correo electr&oacute;nico o el sms con el c&oacute;digo en los pr&oacute;ximos minutos, haga click aqu&iacute; <button id="btn_reenviar_code" class="btn btn-primary">Reenviar</button></p>
+        <p>En caso de no haber recibido el correo electr&oacute;nico o el sms con el c&oacute;digo en los pr&oacute;ximos minutos, haga click aqu&iacute;: <button id="btn_reenviar_code" class="btn btn-primary">Reenviar</button></p>
         <h4>Muchas Gracias!</h4>
+
+        <p><a class="btn btn-primary" href="{{ url('/') }}">Volver al Inicio</a></p>
     </div>
 
     @include('layouts.footer')

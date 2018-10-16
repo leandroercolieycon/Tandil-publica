@@ -172,54 +172,45 @@ class Personalizar extends Controller
             return view('registro_error', ['titulo' => 'Codigo invalido.', 
                 'mensaje' => 'El codigo proporcionado no es v&aacute;lido. Verifique su casilla de e-mail.']);
 
-        else {
+        else
 
-            $result = DB::connection("mysql2")->select("CALL web_auv_getNombreEstado('{$hash}')");
-
-            $existe = null; $estado = 0;
-
-            foreach ($result as $row) {
-
-                $existe = $row->nombre;
-                $estado = $row->estado;
-
-            }
-
-            if ($existe != null) {
-
-                if ($estado == 0)
-
-                    return view('registro_correcto', ['hash' => $hash]);
-
-                else
-
-                    return view('registro_error', ['titulo' => 'Ya se encuentra registrado.', 
-                        'mensaje' => 'Ya existe un perfil con los datos proporcionados. Si necesita recuperarlos, ponganse en contacto a traves del sitio web.']);
+            return view('personalizacion/personalizacion_correcta', ['hash' => $hash]);
                 
-            } else
-
-                return view('registro_error', ['titulo' => 'Datos Incompletos.', 
-                    'mensaje' => 'Debe registrarse en el sistema completando todos los campos.']);
-
-        }
-
     }
 
 
     public function verificar_code(Request $request){
 
         $post = $request->all();
+        $data = new \stdClass();
 
-        $result = DB::connection("mysql2")->select("CALL web_auv_consultaCode_v2('{$post["code"]}', '{$post["hash"]}')");
+        $rules = [ 'code' => 'required|digits:5'];
 
-        $estado = 0;
+        $validator = \Validator::make($post, $rules, [], []);
 
-        foreach ($result as $row) {
+        if($validator->fails()){
+
+            return response()->json(['errors'=>$validator->errors()->all()]);
+
+        } else {
+
+            $result = DB::select("CALL sp_end_personalizacion('{$post["code"]}','{$post["hash"]}')");
+
+            $data->estado = 1;
+            $data->saldo_anterior = 500;
+            $data->tarjeta = 0 ;
+
+            /*foreach ($result as $row) {
+                
+                $estado = $row->encontre;
+                $saldo_anterior = $row->saldo_anterior;
+                $tarjeta = $row->tarjeta;
+            }*/
+
+            return json_encode($data);
             
-            $estado = $row->encontre;
         }
 
-        return $estado;
 
     }
 

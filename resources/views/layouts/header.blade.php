@@ -32,13 +32,13 @@
     <!-- CSS customizable Eycon -->
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
     <link rel="stylesheet" href="{!! asset('css/L.Control.Pan.css') !!}" />
+    <!-- Custom styles for this template -->
+    <link href="{!! asset('css/style.css') !!}" rel="stylesheet">
     <link href="{!! asset('css/custom.css') !!}" rel="stylesheet">
     <link rel="shortcut icon" href="{!! asset('images/favicon.png') !!}" />
 
     {{-- JQuery UI --}}
     <link rel="stylesheet" href="{!! asset('js/jquery-ui/jquery-ui.min.css') !!}">
 
-    <!-- Custom styles for this template -->
-    <link href="{!! asset('css/style.css') !!}" rel="stylesheet">
 
 </head>

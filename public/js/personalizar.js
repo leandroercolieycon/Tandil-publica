@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
 	$.datepicker.regional['es'] = {
 		closeText: 'Cerrar',
 		prevText: '< Ant',
@@ -224,7 +223,7 @@ $(document).ready(function() {
 
 	          		$.each(data.errors, function(key, value){
 	          			$('.alerta_validacion_personalizar').append(value+'<br>').slideDown(200);
-	          		});
+	          		})
             		
             	} else {
 
@@ -232,16 +231,11 @@ $(document).ready(function() {
 
             		switch(datos.estado){
 
-            			case 1: swal({
-            				title: "Hecho",
-            				text: "Verifique su casilla de E-mail para completar el registro.",
-            				type: "success"
-            			}, function(){
+            			case 1: 
 
             				window.location = base_url + '/personalizar/datos_enviados?hash='+datos.hash+'&code='+datos.code+'&nombre='+datos.nombre+
             				'&telefono='+datos.telefono+'&email='+datos.email
             				
-            			})
             			$('#modal-personalizar').modal('hide')
             			break;
             			case 3: swal({
@@ -253,6 +247,85 @@ $(document).ready(function() {
             		}
 
             	}
+
+			}
+		})
+		
+	})
+
+
+	$('#form_verificar_code').on('click', '#btn_verificar_code', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+
+		var _token = $("input[name='_token']").val()
+
+		var code = $('#code').val()
+		var hash = $('#hash').val()
+
+		$.ajax({
+			url: base_url+'/personalizar/verificar_code',
+			type: 'POST',
+			data: {
+				_token: _token,
+				code: code,
+				hash: hash
+			},
+
+			beforeSend: function(){
+
+				$('.spinner_personalizacion_code').toggleClass('sk-loading')
+
+			},
+
+			success: function(data){
+
+				$('.spinner_personalizacion_code').toggleClass('sk-loading')
+
+				if(data.errors != undefined){
+
+					$('.validacion_codigo').html('')
+
+	          		$.each(data.errors, function(key, value){
+	          			$('.validacion_codigo').append(value+'<br>').slideDown(200);
+	          		})
+
+				} else {
+
+					var datos = $.parseJSON(data);
+
+					if(datos.estado == 0){
+
+						swal({
+							title: "Error",
+							text: "C\u00F3digo inv\u00e1lido.",
+							type: "error"
+						})
+
+					} else {
+
+						if(datos.saldo_anterior > 0){
+
+							swal({
+								title: "Personalizaci\u00F3n completada",
+								text: "Su tarjeta SUMO ya se encuentra personalizada.\nPosee $"+ datos.saldo_anterior +" de saldo restante.",
+								type: "success"
+							}, function(){
+								window.location = base_url
+							})
+						} else {
+
+							swal({
+								title: "Personalizaci\u00F3n completada",
+								text: "Su tarjeta SUMO ya se encuentra personalizada.",
+								type: "success"
+							}, function(){
+								window.location = base_url
+							})
+						}
+					}
+					
+				}
 
 			}
 		})

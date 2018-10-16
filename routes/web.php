@@ -19,13 +19,11 @@ Route::post('/personalizar/registrar', 'Personalizar@registrar');
 
 Route::get('/personalizar/datos_enviados', 'Personalizar@datos_enviados');
 
+Route::get('/personalizar/confirmar/{random_code}', 'Personalizar@confirmar');
+
+Route::post('/personalizar/verificar_code', 'Personalizar@verificar_code');
+
 Route::post('/personalizar/log_error', 'Personalizar@log_error');
-
-Route::get('/registrar/confirmar/{random_code}', 'Registrar@confirmar');
-
-Route::post('/registrar/verificar_code', 'Registrar@verificar_code');
-
-Route::post('/registrar/log_error', 'Registrar@log_error');
 
 Route::post('/cargarsaldo', 'CargarSaldo@post');
 

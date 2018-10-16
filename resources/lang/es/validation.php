@@ -174,15 +174,12 @@ return [
                 'email' => 'E-mail',
                 'email_repeat' => 'Repetir E-mail',
                 'nro_tarjeta' => 'N&uacute;mero de Tarjeta',
-                /*'email_registro' => 'E-mail',*/
+                'code' => 'C&oacute;digo',
                 'telefono' => 'Tel&eacute;fono',
                 'telefono_registro' => 'Tel&eacute;fono',
                 'cod_area' => 'C&oacute;digo de &Aacute;rea',
-                /*'cod_area_registro' => 'C&oacute;digo de &Aacute;rea',*/
-                'patente' => 'Patente',
-                'patente_vehiculo_1' => 'Patente Vehiculo 1',
-                'patente_vehiculo_2' => 'Patente Vehiculo 2',
-                'patente_vehiculo_3' => 'Patente Vehiculo 3',
+                /*'email_registro' => 'E-mail',
+                'cod_area_registro' => 'C&oacute;digo de &Aacute;rea',*/
                 'password' => 'Contraseña',
                 'password_repeat' => 'Repetir Constraseña'
 

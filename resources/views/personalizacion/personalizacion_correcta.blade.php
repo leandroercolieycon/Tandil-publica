@@ -3,7 +3,7 @@
 
 @include('layouts.header')
 
-<body id="page-top" class="landing-page no-skin-config spinner_registro_code" style="background-color: #f3f3f4;">
+<body id="page-top" class="landing-page no-skin-config spinner_personalizacion_code" style="background-color: #f3f3f4;">
 
     <div class="sk-spinner sk-spinner-fading-circle">
         <div class="sk-circle1 sk-circle"></div>
@@ -30,11 +30,15 @@
 
             {{ csrf_field() }}
 
-            <input id="hash" value="" type='hidden'>
+            <div class="form-group">
+                <div class="validacion_codigo alert alert-danger" style="display: none;"></div>
+            </div>
+
+            <input id="hash" value="{{ $hash }}" type='hidden'>
             <div class="form-group row">
-                <label for="" class="col-sm-4 col-form-label">C&oacute;digo:</label>
+                <label for="code" class="col-sm-4 col-form-label">C&oacute;digo:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="code" data-mask="00000">
+                    <input type="text" name="code" class="form-control" id="code" data-mask="00000">
                 </div>
             </div>
             <div class="form-group">

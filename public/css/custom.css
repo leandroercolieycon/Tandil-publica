@@ -138,15 +138,15 @@ select{
 	z-index: 0 !important;
 }
 
-.spinner_registro_code > .sk-spinner{
+.spinner_personalizacion_code > .sk-spinner{
 	display: none;
 }
 
-.spinner_registro_code.sk-loading{
+.spinner_personalizacion_code.sk-loading{
 	position: relative;
 }
 
-.spinner_registro_code.sk-loading > .sk-spinner{
+.spinner_personalizacion_code.sk-loading > .sk-spinner{
 	display: block;
     position: absolute;
     top: 40%;
@@ -155,7 +155,7 @@ select{
     z-index: 2000;
 }
 
-.spinner_registro_code.sk-loading:after{
+.spinner_personalizacion_code.sk-loading:after{
 	content: '';
     background-color: rgba(255, 255, 255, 0.7);
     position: absolute;

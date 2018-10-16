@@ -325,7 +325,7 @@
                                 </tr>
                                 <tr>
                                 	<td class="content-block">
-                                		Para continuar con la personalizaci&oacute;n de su Tarjeta, haga click <a href='{url}'>aqu&iacute;</a>.
+                                		Para continuar con la personalizaci&oacute;n de su Tarjeta, haga click <a href='{{ $url }}'>aqu&iacute;</a>.
                                 	</td>
                                 </tr>
                                 <tr>
